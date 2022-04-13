@@ -1,0 +1,23 @@
+.footer-middle {
+  background: var(--mainDark);
+  padding-top: 3rem;
+  color: var(--mainWhite);
+}
+
+.footer-bottom {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+ul li a {
+  color: var(--mainGrey);
+}
+
+ul li a:hover {
+  color: var(--mainLightGrey);
+}
+
+.ÜberschriftFooter {
+  font-size: 5vw;
+  font-weight: bold;
+}

@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 import { useState } from "react";
 import React, { Component } from "react";
 import { ethers } from "ethers";
@@ -10,6 +10,9 @@ import {
   Routes,
   Redirect,
 } from "react-router-dom";
+
+import logo from "./logo.svg";
+import "./App.css";
 
 // Pages
 import HomePage from "./Pages/HomePage";
@@ -40,29 +43,18 @@ import Test from "./Pages/Test";
 
 //   async function setGreeting() {}
 
-
-// const App = () => ( 
-//   <Router>
-//     <Routes>
-//       <Route exact path="/" component={HomePage} />
-//     </Routes>
-//   </Router>
-// )
-
-
 class App extends Component {
   render() {
     // Paths
-    // const HomeLink = "/";
-    // const ProfileLink = "/Profile";
-    // const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+    const HomeLink = "/";
+    const ProfileLink = "/Profile";
+    const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
     return (
       <dev>
         <Router>
           <Routes>
             <Route exact path="/" component={Test} />
-            <Route path="/"> <HomePage /> </Route>
             {/* <Route exact path={HomeLink} component={HomePage} /> */}
             {/* <Route exact path={ProfileLink} component={Profile} /> */}
           </Routes>

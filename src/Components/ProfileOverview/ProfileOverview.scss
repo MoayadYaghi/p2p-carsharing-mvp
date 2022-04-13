@@ -1,0 +1,216 @@
+.ProfileOverviewPage {
+  display: block;
+}
+.Above {
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.AboveLeft {
+  display: block;
+  width: 70%;
+  margin-left: 10px;
+}
+.InfoHeading {
+  font-family: "Comfortaa";
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #353b48;
+}
+.AboveLeftInfo {
+  display: flex;
+  background-color: #ecf0f1;
+  border: 2px solid;
+  font-family: "Nunito";
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+}
+.AboveLeftLeft {
+  display: grid;
+  width: 50%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.AboveLeftRight {
+  display: grid;
+  width: 50%;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+.InfoFieldsRight {
+}
+.AboveRight {
+  font-family: "Nunito";
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+}
+
+.Below {
+  display: flex;
+  margin-bottom: 10px;
+}
+.BelowLeft {
+  width: 46%;
+  font-family: "Nunito";
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 3%;
+  align-self: flex-start;
+}
+
+.EditButton {
+  margin-top: 3px;
+  margin-right: 3px;
+  background-color: #26418f;
+  border-color: #26418f;
+  font-family: "Nunito";
+  font-size: 1rem;
+  // border: 0;
+  color: white;
+  border-radius: 0;
+  /* text-transform: uppercase; */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 150ms ease-in-out;
+  border-radius: 3rem;
+  padding: 0.3rem 3rem 0.3rem 3rem;
+  text-decoration: none;
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    color: white;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: #0077c2;
+    z-index: -1;
+    transition: width 150ms ease-in-out;
+    text-decoration: none;
+  }
+  &:hover {
+    color: #fff;
+    &:after {
+      width: 110%;
+    }
+  }
+}
+
+.EditProfileButton {
+  margin-top: 3px;
+  margin-left: 7px;
+  background-color: #26418f;
+  border-color: #26418f;
+  font-family: "Nunito";
+  font-size: 1rem;
+  // border: 0;
+  color: white;
+  border-radius: 0;
+  /* text-transform: uppercase; */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 150ms ease-in-out;
+  border-radius: 3rem;
+  padding: 0.3rem 3rem 0.3rem 3rem;
+  text-decoration: none;
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    color: white;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: #0077c2;
+    z-index: -1;
+    transition: width 150ms ease-in-out;
+    text-decoration: none;
+  }
+  &:hover {
+    color: #fff;
+    &:after {
+      width: 110%;
+    }
+  }
+}
+.BelowRight {
+  display: flex-end;
+  width: 46%;
+  font-family: "Nunito";
+  font-size: 1.5rem;
+  color: black;
+  text-decoration: none;
+  margin-left: 3%;
+  margin-right: 10px;
+  right: 100;
+}
+.OrderHeading {
+  font-family: "Comfortaa";
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #353b48;
+}
+.BelowRightOrders {
+  background-color: #ecf0f1;
+  border: 2px solid;
+  padding-left: 5px;
+}
+@media (max-width: 900px) {
+  .AboveLeft {
+    width: 60%;
+  }
+  .AboveLeftInfo {
+    display: block;
+  }
+  .BelowLeft {
+    width: 48.5%;
+    margin-right: 0.5%;
+  }
+  .BelowRight {
+    width: 48.5%;
+    margin-left: 0.5%;
+  }
+}
+@media (max-width: 780px) {
+  .Below {
+    display: block;
+  }
+  .BelowRight {
+    width: auto;
+    margin-right: 10px;
+  }
+  .BelowRight {
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 680px) {
+  .Above {
+    display: block;
+  }
+  .AboveLeft {
+    width: unset;
+    margin-right: 10px;
+  }
+  .InfoHeading {
+    font-size: 1.5rem;
+  }
+  .OrderHeading {
+    font-size: 1.5rem;
+  }
+}
