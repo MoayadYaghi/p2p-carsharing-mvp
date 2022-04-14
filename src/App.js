@@ -15,7 +15,7 @@ import Profile from "./Pages/Profile";
 class App extends Component {
   render() {
     const HomeLink = "/";
-    const ProfileLink = "/";
+    const ProfileLink = "/Profile";
 
     return (
       <div className="App">

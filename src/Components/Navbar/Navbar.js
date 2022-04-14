@@ -1,42 +1,41 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import { animateScroll as scroll } from "react-scroll";
+import { Navbar, Nav } from 'react-bootstrap'
+// import { Navbar, NavDropdown, Form, FormControl, Button, Nav } from 'react-bootstrap'
 import { MenuItems } from "./MenuItems";
-// import "./Navbar.css";
-import logo from "../../Assets/LOGO.jpg";
-import { Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import "./Navbar.css";
 
-class Navbar extends Component {
+import HomePage from '../HomePage/Homepage';
+import Profile from '../ProfileOverview/ProfileOverview';
+import Logo from '../../Assets/LOGO.jpg';
+
+
+export default class NavbarComp extends Component {
   state = { clicked: false };
-
   componentDidMount() {
     scroll.scrollToTop();
   }
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
-  };
-
   render() {
-    const LogInLink = "/Login";
-    const BasketLink = "/RentedCars";
 
-    var Username = sessionStorage.getItem("Username");
-    var SignedIn = sessionStorage.getItem("token");
+    const HomeLink = "/";
+    const ProfileLink = "/Profile";
+
     return (
-      <div>
+      <div className="Navbar">
         <div className="Headline1">
           <a className="Link" alt="logo" href="/">
-            <img alt="Logo" border="0" src={logo} className="Logo"></img>
+            <img alt="Logo" src={Logo} className="responsive"></img>
           </a>
-          <h1 className="dAppName">Charsharing Y</h1>
+          <h1 className="AppName">Carsharing Y</h1>
         </div>
         <nav className="NavbarItems">
-          <div className="menu-icon" onClick={this.handleClick}>
-            <i
-              className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-            ></i>
-          </div>
-          <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-            {/* MenuItems.map((item, index) => {
+        {MenuItems.map((item, index) => {
               return (
                 <li key={index}>
                   <a className={item.cName} href={item.url}>
@@ -44,29 +43,11 @@ class Navbar extends Component {
                   </a>
                 </li>
               );
-            })**/}
-          </ul>
-          <div>
-            {/* {console.log(Username)} */}
-
-            <Link className="signIn" to={LogInLink}>
-              {SignedIn !== null
-                ? Username === null
-                  ? "Sign In"
-                  : Username
-                : "Resign In"}
-            </Link>
-          </div>
-
-          <Link to={BasketLink}>
-            <div className="menu-cart">
-              <i className="fas fa-shopping-cart"></i>
-            </div>
-          </Link>
+            })}
+            <br/>
+            <br/>
         </nav>
       </div>
-    );
+    )
   }
 }
-
-export default Navbar;

@@ -38,6 +38,7 @@ function Footer() {
           <p className="below-line">
             &copy;{new Date().getFullYear()} Carsharing Y - All rights reserved | Terms Of Service | Privacy
           </p>
+          <br/>
         </div>
       </div>
     </FooterContainer>

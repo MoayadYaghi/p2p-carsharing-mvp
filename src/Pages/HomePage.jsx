@@ -9,7 +9,14 @@ import Footer from "../Components/Footer/Footer";
 const HomePage = () => {
   return (
     <div className="App">
-      {/* <Navbar /> */}
+      <Navbar />
+        <p>Hello World</p>
+        <p>Hello World</p>
+        <p>Hello World</p>
+        <p>Hello World</p>
+        <p>Hello World</p>
+        <p>Hello World</p>
+        <p>Hello World</p>
         <p>Hello World</p>
         <p>Hello World</p>
         <p>Hello World</p>
