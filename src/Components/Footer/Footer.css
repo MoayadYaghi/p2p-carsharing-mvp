@@ -1,7 +1,7 @@
 .main-footer {
   color: white;
   background-color: var(--mainDark);
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }

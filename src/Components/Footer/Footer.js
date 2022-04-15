@@ -9,28 +9,28 @@ function Footer() {
         <div className="above">
           <div className="block-left">
               <h4>Carsharing Y</h4>
-              <ui className="list-unstyled">
+              <ul className="list-unstyled">
                 <li>About</li>
                 <li>Cars</li>
                 <li>Future</li>
-              </ui>
+              </ul>
           </div>
           <div className="block">
               <h4>Legal</h4>
-              <ui className="list-unstyled">
+              <ul className="list-unstyled">
                 <li>Imprint</li>
                 <li>Privacy Policy</li>
                 <li>Terms of Service</li>
-              </ui>
+              </ul>
           </div>
           {/* Column3 */}
           <div className="block-right">
               <h4>Contact</h4>
-              <ui className="list-unstyled">
+              <ul className="list-unstyled">
                 <li>68159 Mannheim</li>
                 <li>Coblitzallee 1-9</li>
                 <li>Email: moayad.yaghi@sap.com</li>
-              </ui>
+              </ul>
           </div>
         </div>  
         <hr />
