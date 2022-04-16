@@ -10,9 +10,9 @@ import React from "react";
 const Profile = () => {
   return (
     <div className="App">
-      {/* <Navbar />
+      <Navbar />
       <ProfileOverview />
-      <Footer /> */}
+      <Footer />
     </div>
   );
 };

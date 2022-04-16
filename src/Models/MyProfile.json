@@ -1,0 +1,24 @@
+{
+    "id": 7,
+    "forename": "Moayad",
+    "lastName": "Yaghi",
+    "email": "moayad.yaghi@outlook.com",
+    "age": "26",
+    "paymentMethod": "Paypal",
+    "orders": [
+        {
+            "id": 1,
+            "modelName": "Mercedes Benz E Class",
+            "image": "/MB E class.png",
+            "location": "",
+            "price": 0.0001
+        },
+        {
+            "id": 2,
+            "modelName": "Land Rover Range Rover",
+            "image": "/Land Rover Range Rover.png",
+            "location": "",
+            "price": 0.0002
+        }
+    ]
+}

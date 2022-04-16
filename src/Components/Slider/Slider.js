@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import './Slider.scss'
 import '../../Components/Slider/Slider.scss'
 
