@@ -26,12 +26,10 @@ const test = () => {
 
 const HomePage = () => {
   return (
-    
     <div className="App">
       <Navbar />
       <Slider />
-        <p>Hello World</p>
-        <button onClick={test}>Test</button>
+        {/* <button onClick={test}>Test</button> */}
       <Footer />
     </div>
   );

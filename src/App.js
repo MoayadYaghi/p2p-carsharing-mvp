@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -8,14 +7,13 @@ import {
   Redirect,
 } from "react-router-dom";
 
+// Components
 import HomePage from "./Pages/HomePage";
 import Profile from "./Pages/Profile";
 
-
-// function App() {
 class App extends Component {
-
   render() {
+    // Paths
     const HomeLink = "/";
     const ProfileLink = "/Profile";
 

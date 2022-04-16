@@ -8,7 +8,6 @@ var id = [];
 var location = [];
 var price = [];
 
-
 class SliderCall extends React.Component {
     constructor(props) {
         super(props);
@@ -34,7 +33,7 @@ class SliderCall extends React.Component {
         });
         return (
             <div>
-                {/* <MoviesSlider key={name} images={photo} text={name} id={id} /> */}
+                <MoviesSlider images={photo} text={name} id={id} location={location} price={price} />
             </div>
         );
     }

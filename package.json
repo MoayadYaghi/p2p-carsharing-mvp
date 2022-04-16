@@ -10,12 +10,14 @@
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.3",
     "hardhat": "^2.1.2",
+    "node-sass": "^7.0.1",
     "react": "^18.0.0",
     "react-bootstrap": "^2.2.3",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.7",
+    "scss": "^0.2.4",
     "styled-components": "^5.3.5"
   },
   "scripts": {
