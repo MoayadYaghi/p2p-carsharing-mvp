@@ -1,5 +1,5 @@
 import React from "react";
-import MoviesSlider from "./Slider";
+import CarSlider from "./Slider";
 import CarsList from "../../Assets/Cars/response.json"
 
 var photo = [];
@@ -33,7 +33,7 @@ class SliderCall extends React.Component {
         });
         return (
             <div>
-                <MoviesSlider images={photo} text={name} id={id} location={location} price={price} />
+                <CarSlider images={photo} text={name} id={id} location={location} price={price} />
             </div>
         );
     }

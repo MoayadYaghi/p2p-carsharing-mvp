@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import './Slider.scss'
 import '../../Components/Slider/Slider.scss'
 
-function CarsSlider({ images, text, id, location, price }) {
+function CarsSlider({ images, text, id, location, price }) {  
   const length = images.length
   const CarLink = '/CarDetails/'
   const [index, setIndex] = useState(0)
+
 
   const goLeft = () => {
     const nextIndex = index - 1
@@ -16,6 +17,7 @@ function CarsSlider({ images, text, id, location, price }) {
       setIndex(nextIndex)
     }
   }
+
   const goRight = () => {
     setIndex((index + 1) % images.length)
   }
@@ -137,7 +139,7 @@ function CarsSlider({ images, text, id, location, price }) {
           <div className="rechteSeitediv">
             {/* <Link className="rightSidedivBlock2" to={CarLink + id[(index+2)%length]}> */}
             <div className="rightSidedivBlock2">
-              {console.log(CarLink + id[(index + 2) % length])}
+              {/* {console.log(CarLink + id[(index + 2) % length])} */}
               {
                 <img
                   className="rightSideSliderImage2"

@@ -10,12 +10,14 @@ import {
 // Components
 import HomePage from "./Pages/HomePage";
 import Profile from "./Pages/Profile";
+import CarDetails from "./Pages/Car";
 
 class App extends Component {
   render() {
     // Paths
     const HomeLink = "/";
     const ProfileLink = "/Profile";
+    const CarDetailsLink = "/CarDetails/:id";
 
     return (
       <div className="App">
@@ -23,6 +25,7 @@ class App extends Component {
           <Routes>
             <Route exact path={HomeLink} element={<HomePage />} />
             <Route exact path={ProfileLink} element={<Profile />} />
+            <Route exact path={CarDetailsLink} element={<CarDetails />} />
           </Routes>
         </Router>
       </div>
