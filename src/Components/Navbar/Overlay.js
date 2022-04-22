@@ -12,6 +12,8 @@ export default function Home() {
       {isAuthenticated ? (
         <p>
           You are logged in
+          <br/>
+          <br/>
           <button onClick={logout}>Sign Out</button>
         </p>
       ) : (
