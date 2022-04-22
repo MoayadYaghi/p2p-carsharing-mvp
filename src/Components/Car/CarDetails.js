@@ -121,7 +121,7 @@ class CarDetails extends React.Component {
   renderRedirect = () => {
     if (this.state.redirect) {
         // Link to payment page
-      return <Navigate to={`/Sitzplatz/${this.state.clickedVorstellung}`} />;
+      return <Navigate to={`${this.state.clickedVorstellung}`} />;
     }
   };
 

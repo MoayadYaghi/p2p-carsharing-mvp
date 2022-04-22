@@ -1,20 +1,10 @@
 import React, { Component } from 'react'
 import { animateScroll as scroll } from "react-scroll";
-import { Navbar, Nav } from 'react-bootstrap'
-// import { Navbar, NavDropdown, Form, FormControl, Button, Nav } from 'react-bootstrap'
 import { MenuItems } from "./MenuItems";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
 import "./Navbar.css";
-
-import HomePage from '../HomePage/Homepage';
-import Profile from '../ProfileOverview/ProfileOverview';
 import Logo from '../../Assets/LOGO.jpg';
-
+import { MoralisProvider } from 'react-moralis';
+import { useMoralis } from 'react-moralis';
 
 export default class NavbarComp extends Component {
   state = { loggedIn: false };
@@ -25,9 +15,7 @@ export default class NavbarComp extends Component {
     // console.log(this.state.loggedIn)
   }
   render() {
-
-    const HomeLink = "/";
-    const ProfileLink = "/Profile";
+    const LoginLink = "/Login";
 
     return (
       <div className="Navbar">
@@ -51,7 +39,7 @@ export default class NavbarComp extends Component {
           })}
           {this.state.loggedIn === false ?
             <li>
-              <a className="nav-links" href="">
+              <a className="nav-links" href={LoginLink}>
                 Log In
               </a>
             </li>

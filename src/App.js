@@ -11,6 +11,7 @@ import {
 import HomePage from "./Pages/HomePage";
 import Profile from "./Pages/Profile";
 import CarDetails from "./Pages/Car";
+import LoginOverlay from "./Components/Navbar/Overlay";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
     const HomeLink = "/";
     const ProfileLink = "/Profile";
     const CarDetailsLink = "/CarDetails/:id";
+    const LoginLink = "/Login";
 
     return (
       <div className="App">
@@ -26,6 +28,7 @@ class App extends Component {
             <Route exact path={HomeLink} element={<HomePage />} />
             <Route exact path={ProfileLink} element={<Profile />} />
             <Route exact path={CarDetailsLink} element={<CarDetails />} />
+            <Route exact path={LoginLink} element={<LoginOverlay />} />
           </Routes>
         </Router>
       </div>
