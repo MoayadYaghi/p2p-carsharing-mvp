@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { useMoralis } from "react-moralis";
 
 export default function Home() {
@@ -13,33 +13,26 @@ export default function Home() {
         <p>
           You are logged in
           <button onClick={logout}>Sign Out</button>
-          <Link to={HomeLink}>
-            <button>Return to Homepage</button>
-          </Link>
         </p>
       ) : (
         <div>
-          {authError && (
-            <p>
-              {authError.name}
-              {authError.message}
-            </p>
-          )}
-          <button
-            onClick={authenticate}
-          >
-            Login using Metamask
-          </button>
-          <Link to={HomeLink}>
-            <button>Return to Homepage</button>
-          </Link>
+          <div>
+            {authError && (
+              <p>
+                {authError.name}
+                {authError.message}
+              </p>
+            )}
+            <button onClick={authenticate}>Login using Metamask</button>
+          </div>
         </div>
-        // <Login />
       )}
+      <Link to={HomeLink}>
+        <button>Return to Homepage</button>
+      </Link>
     </div>
   );
 }
-
 
 // import { useMoralis } from "react-moralis";
 // const { authenticate, isAuthenticated, logout } = useMoralis();
@@ -56,7 +49,8 @@ export default function Home() {
 
 //   export default Connect;
 
-{/* <>
+{
+  /* <>
 <VStack>
   <Box>
     <Box
@@ -103,8 +97,8 @@ export default function Home() {
     </Box>
   </Box>
 </VStack>
-</> */}
-
+</> */
+}
 
 // export default function Overlay(props) {
 //     let component;
@@ -132,4 +126,3 @@ export default function Home() {
 //         </div>
 //     );
 // }
-

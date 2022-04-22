@@ -15,6 +15,7 @@ export default class NavbarComp extends Component {
     // console.log(this.state.loggedIn)
   }
   render() {
+
     const LoginLink = "/Login";
 
     return (
