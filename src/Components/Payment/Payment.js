@@ -1,57 +1,84 @@
 import React, { Component } from "react";
-import DropdownButton from "react";
-import Dropdown from "react";
 
-
-const App = () => {
-    const [food, setFood] = React.useState('fruit');
-    const [drink, setDrink] = React.useState('water');
-
-    const handleFoodChange = (event) => {
-        setFood(event.target.value);
+class Payment extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "React"
     };
+    this.onValueChange = this.onValueChange.bind(this);
+    this.formSubmit = this.formSubmit.bind(this);
+  }
 
-    const handleDrinkChange = (event) => {
-        setDrink(event.target.value);
-    };
+  onValueChange(event) {
+    this.setState({
+      selectedOption: event.target.value
+    });
+  }
 
+  formSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.selectedOption)
+    this.pay()
+  }
+
+  pay() {
+    switch(this.state.selectedOption) {
+        case 'Mastercard': ; break
+        case 'Paypal': ; break
+        case 'Metamask': this.payWithMetamask(); break
+        default: this.payWithMetamask()
+    }
+  }
+
+  payWithMetamask() {
+  }
+
+  render() {
     return (
-
-        <div>
-            {/* <DropdownButton id="dropdown-basic-button" title="Dropdown button">
-  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-</DropdownButton> */}
-            {/* <Dropdown
-                label="What do we eat?"
-                options={[
-                    { label: 'Fruit', value: 'fruit' },
-                    { label: 'Vegetable', value: 'vegetable' },
-                    { label: 'Meat', value: 'meat' },
-                ]}
-                value={food}
-                onChange={handleFoodChange}
+      <form onSubmit={this.formSubmit}>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Mastercard"
+              checked={this.state.selectedOption === "Mastercard"}
+              onChange={this.onValueChange}
             />
-
-            <Dropdown
-                label="What do we drink?"
-                options={[
-                    { label: 'Water', value: 'water' },
-                    { label: 'Beer', value: 'beer' },
-                    { label: 'Wine', value: 'wine' },
-                ]}
-                value={drink}
-                onChange={handleDrinkChange}
-            /> */}
-
-            <p>We eat {food}!</p>
-            <p>We drink {drink}!</p>
+            Mastercard
+          </label>
         </div>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Paypal"
+              checked={this.state.selectedOption === "Paypal"}
+              onChange={this.onValueChange}
+            />
+            Paypal
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Metamask"
+              checked={this.state.selectedOption === "Metamask"}
+              onChange={this.onValueChange}
+            />
+            Metamask
+          </label>
+        </div>
+        <div>
+          Selected option is : {this.state.selectedOption}
+        </div>
+        <button className="btn btn-default" type="submit">
+          Pay
+        </button>
+      </form>
     );
-};
+  }
+}
 
-export default App;
-
-
-
+export default Payment;
