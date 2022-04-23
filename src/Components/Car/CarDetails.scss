@@ -1,0 +1,99 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.carImage {
+    display: flex;
+    margin: 1rem;
+    flex-wrap: wrap;
+    height: 30rem;
+    grid-gap: 4rem;
+    flex: 1;
+    border-radius: 30px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    flex: 1;
+}
+
+.header {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    align-items: flex-start;
+    font-family: "Comfortaa";
+    text-transform: uppercase;
+    font-size: 3rem;
+    color: #353b48;
+}
+
+.CarDetailsHeading {
+    font-family: "Comfortaa";
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #353b48;
+}
+
+.CarSpecifications {
+    background-color: #ecf0f1;
+    border: 2px solid;
+    padding-left: 5px;
+    display: block;
+    height: max-content;
+    align-items: left;
+    align-content: left;
+    justify-content: left;
+    justify-items: left;
+}
+
+.nextButtonWrapper {
+    position: relative;
+    float: right;
+}
+
+ul li {
+    display: block;
+}
+
+li {
+    display: block;
+}
+
+@media (max-width: 779px) {
+    .image {
+        height: 20rem;
+    }
+}
+
+@media (max-width: 771px) {
+    .header {
+        font-size: 2rem;
+    }
+
+    .content {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper {
+        display: flex;
+    }
+
+    .image {
+        height: 20rem;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .description {
+        margin-left: unset;
+        margin-top: 1rem;
+    }
+}

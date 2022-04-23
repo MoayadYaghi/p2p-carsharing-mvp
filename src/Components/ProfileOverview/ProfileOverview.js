@@ -94,77 +94,76 @@ class ProfileOverview extends Component {
         {/* {this.state.loaded ? ( */}
         <div>
           <div className="Above">
-              <div className="AboveLeft">
-                <div className="InfoHeading">
-                  Your Details: <br></br>
-                </div>
-                <div className="AboveLeftInfo">
-                  <div className="AboveLeftLeft">
-                    First Name
-                    <input
-                      className="InfoFieldsLeft"
-                      type="text"
-                      placeholder={this.state.user.forename}
-                      disabled={!this.state.editableProfile}
-                      value={this.state.user.forename}
-                      onChange={this.editForename}
-                    />
-                    Last Name
-                    <input
-                      className="InfoFieldsLeft"
-                      type="text"
-                      placeholder={this.state.user.lastName}
-                      disabled={!this.state.editableProfile}
-                      value={this.state.user.lastName}
-                      onChange={this.editLastName}
-                    />
-                    Email Address
-                    <input
-                      className="InfoFieldsLeft"
-                      type="text"
-                      placeholder={this.state.user.email}
-                      disabled={!this.state.editableProfile}
-                      value={this.state.user.email}
-                      onChange={this.editEmail}
-                    />
-                    Age
-                    <input
-                      className="InfoFieldsLeft"
-                      type="text"
-                      placeholder={this.state.user.age}
-                      disabled={!this.state.editableProfile}
-                      value={this.state.user.age}
-                      onChange={this.editAge}
-                    />
-                  </div>
-                  <div className="AboveLeftRight">
-                    Payment Method
-                    <input
-                      className="InfoFieldsRight"
-                      type="text"
-                      placeholder={this.state.user.paymentMethod}
-                      disabled={!this.state.editableProfile}
-                      value={this.state.user.paymentMethod}
-                      onChange={this.editPaymentMethod}
-                    />
-                  </div>
-                </div>
+            <div className="AboveLeft">
+              <div className="InfoHeading">
+                Your Details: <br></br>
               </div>
-              <div className="AboveRight">
-                <button
-                  className="EditProfileButton"
-                  onClick={this.editProfile}
-                >
-                  {" "}Edit Profile{" "}
-                </button>
-                <button
-                  className="EditProfileButton"
-                  onClick={this.profileEdited}
-                >
-                  {" "}Done{" "}
-                </button>
+              <div className="AboveLeftInfo">
+                <div className="AboveLeftLeft">
+                  First Name
+                  <input
+                    className="InfoFieldsLeft"
+                    type="text"
+                    placeholder={this.state.user.forename}
+                    disabled={!this.state.editableProfile}
+                    value={this.state.user.forename}
+                    onChange={this.editForename}
+                  />
+                  Last Name
+                  <input
+                    className="InfoFieldsLeft"
+                    type="text"
+                    placeholder={this.state.user.lastName}
+                    disabled={!this.state.editableProfile}
+                    value={this.state.user.lastName}
+                    onChange={this.editLastName}
+                  />
+                  Email Address
+                  <input
+                    className="InfoFieldsLeft"
+                    type="text"
+                    placeholder={this.state.user.email}
+                    disabled={!this.state.editableProfile}
+                    value={this.state.user.email}
+                    onChange={this.editEmail}
+                  />
+                  Age
+                  <input
+                    className="InfoFieldsLeft"
+                    type="text"
+                    placeholder={this.state.user.age}
+                    disabled={!this.state.editableProfile}
+                    value={this.state.user.age}
+                    onChange={this.editAge}
+                  />
+                </div>
+                <div className="AboveLeftRight">
+                  Payment Method
+                  <input
+                    className="InfoFieldsRight"
+                    type="text"
+                    placeholder={this.state.user.paymentMethod}
+                    disabled={!this.state.editableProfile}
+                    value={this.state.user.paymentMethod}
+                    onChange={this.editPaymentMethod}
+                  />
+                </div>
               </div>
             </div>
+            <div className="AboveRight">
+              <button className="EditProfileButton" onClick={this.editProfile}>
+                {' '}
+                Edit Profile{' '}
+              </button>
+              <button
+                className="EditProfileButton"
+                onClick={this.profileEdited}
+              >
+                {' '}
+                Done{' '}
+              </button>
+            </div>
+          </div>
 
           <div className="Below">
             {}
@@ -177,7 +176,7 @@ class ProfileOverview extends Component {
                 {this.orders.map((car, index) => {
                   return (
                     <li key={index}>
-                      <a className={car} ref="">{car}</a>
+                      <a>{car}</a>
                     </li>
                   )
                 })}

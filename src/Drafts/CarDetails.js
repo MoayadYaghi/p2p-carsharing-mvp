@@ -4,13 +4,11 @@ import "./CarDetails.scss";
 import { Navigate } from "react-router-dom";
 
 
-const PaymentLink = "/Payment";
-
 class CarDetails extends React.Component {
-  PaymentLink = "/Payment";
   carImagePath = ""
   carsImages = "../../Assets/Cars"
   assetsPath = require.context('../../Assets/Cars', false, /\.(png|jpe?g|svg)$/);
+
   allCars = Object.values(Cars.cars);
   carsIds = this.allCars.map((car) => car.id);
   url = window.location.href;
@@ -34,6 +32,7 @@ class CarDetails extends React.Component {
         monat = "0" + monat;
       }
       let date = day + "." + monat + "." + today.getFullYear();
+
       add = 1;
       today.setDate(today.getDate() + add);
       wholeWeek.push(date);
@@ -42,6 +41,7 @@ class CarDetails extends React.Component {
     this.state = {
       car: "",
       image: "",
+
       vorstellungen: [],
       weekDates: wholeWeek,
       weekDay: weekDay,
@@ -49,6 +49,7 @@ class CarDetails extends React.Component {
       nextButton: "",
       redirect: false,
     };
+    this.setRedirect = this.setRedirect.bind(this);
   }
 
   setCarAttributes() {
@@ -83,7 +84,7 @@ class CarDetails extends React.Component {
   renderRedirect = () => {
     if (this.state.redirect) {
       // Link to payment page
-      return <Navigate to={`Payment`} />;
+      return <Navigate to={`${this.state.clickedVorstellung}`} />;
     }
   };
 

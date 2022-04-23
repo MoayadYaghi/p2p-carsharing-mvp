@@ -51,7 +51,7 @@ export default function Home() {
 
 //   export default Connect;
 
-{
+// {
   /* <>
 <VStack>
   <Box>
@@ -100,7 +100,7 @@ export default function Home() {
   </Box>
 </VStack>
 </> */
-}
+// }
 
 // export default function Overlay(props) {
 //     let component;
