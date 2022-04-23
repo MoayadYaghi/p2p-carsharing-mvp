@@ -12,7 +12,7 @@ import HomePage from "./Pages/HomePage";
 import Profile from "./Pages/Profile";
 import CarDetails from "./Pages/Car";
 import LoginOverlay from "./Components/Navbar/Overlay";
-import Payment from "./Components/Payment/Payment";
+import Payment from "./Pages/Payment";
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
     const ProfileLink = "/Profile";
     const CarDetailsLink = "/CarDetails/:id";
     const LoginLink = "/Login";
-    const PaymentLink = "/Payment";
+    const PaymentLink = "/CarDetails/:id/Payment";
 
     return (
       <div className="App">
@@ -30,7 +30,6 @@ class App extends Component {
             <Route exact path={HomeLink} element={<HomePage />} />
             <Route exact path={ProfileLink} element={<Profile />} />
             <Route exact path={CarDetailsLink} element={<CarDetails />} />
-            <Route exact path={LoginLink} element={<LoginOverlay />} />
             <Route exact path={PaymentLink} element={<Payment />} />
           </Routes>
         </Router>

@@ -3,9 +3,6 @@ import Cars from "../../Assets/Cars/response.json";
 import "./CarDetails.scss";
 import { Navigate } from "react-router-dom";
 
-
-const PaymentLink = "/Payment";
-
 class CarDetails extends React.Component {
   PaymentLink = "/Payment";
   carImagePath = ""
@@ -82,7 +79,6 @@ class CarDetails extends React.Component {
 
   renderRedirect = () => {
     if (this.state.redirect) {
-      // Link to payment page
       return <Navigate to={`Payment`} />;
     }
   };
@@ -134,4 +130,5 @@ class CarDetails extends React.Component {
     );
   }
 }
+
 export default CarDetails;
