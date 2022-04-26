@@ -24,10 +24,10 @@ import Slider from "../Components/Slider/SliderCall";
 //   // console.log(CarsList)
 // };
 
-const HomePage = () => {
+const HomePage = ({ accounts, setAccounts }) => {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar accounts={accounts} setAccounts={setAccounts} />
       <Slider />
         {/* <button onClick={test}>Test</button> */}
       <Footer />
