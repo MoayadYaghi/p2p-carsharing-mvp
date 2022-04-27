@@ -39,6 +39,14 @@
             "location": "Karlsruhe",
             "price": 0.0005,
             "reserved": false
+        },
+        {
+            "id": 6,
+            "modelName": "Land Rover Range Rover",
+            "image": "/Land Rover Range Rover.png",
+            "location": "Mannheim",
+            "price": 0.0002,
+            "reserved": true
         }
     ]
 }

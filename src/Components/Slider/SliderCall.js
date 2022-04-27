@@ -20,9 +20,9 @@ class SliderCall extends React.Component {
 
     componentDidMount() {
         if (CarsList.length !== 0) {
-            const cars = Object.values(CarsList)[0]
-            this.setState({ cars: cars });
-            console.log(this.cars)
+            // const cars = Object.values(CarsList)[0]
+            const availableCars = Object.values(CarsList)[0].filter( car => car.reserved == false)
+            this.setState({ cars: availableCars });
         }
     }
 
