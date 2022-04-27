@@ -1,8 +1,0 @@
-Requirments
-
-
-1 Rent Car
-2 Return Car
-3 Offer Car
-
-mint function

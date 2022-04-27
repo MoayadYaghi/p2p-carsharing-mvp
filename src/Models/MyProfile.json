@@ -3,8 +3,8 @@
     "forename": "Moayad",
     "lastName": "Yaghi",
     "email": "moayad.yaghi@outlook.com",
-    "age": "26",
-    "paymentMethod": "Paypal",
+    "age": "25",
+    "paymentMethod": "Metamask",
     "orders": [
         {
             "id": 1,

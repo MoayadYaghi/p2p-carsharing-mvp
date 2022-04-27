@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import CarRentalContract from "./../../artifacts/contracts/Carsharing.sol/CarRentalContract.json"
+
 
 class Payment extends Component {
   constructor() {
@@ -29,6 +31,11 @@ class Payment extends Component {
         case 'Metamask': this.payWithMetamask(); break
         default: this.payWithMetamask()
     }
+  }
+
+  // from .sol file
+  setRentTime() {
+
   }
 
   payWithMetamask() {
@@ -76,6 +83,7 @@ class Payment extends Component {
         <button className="btn btn-default" type="submit">
           Pay
         </button>
+        {/* <input onChange={ e => setRentTime(e.target.value) placeholder="Enter hours" value={}}/> */}
       </form>
     );
   }
