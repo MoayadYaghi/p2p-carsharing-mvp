@@ -1,7 +1,8 @@
 require("@nomiclabs/hardhat-waffle");
-// const dotenv = require("dotenv");
+require("@nomiclabs/hardhat-etherscan");
+const dotenv = require("dotenv");
 
-// dotenv.config();
+dotenv.config();
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -27,6 +28,10 @@ module.exports = {
   networks: {
     hardhat: {
       chainId: 1337
+    },
+    maralis: {
+      url: process.env.REACT_APP_MORALIS_SERVER_URL,
+      accounts: [process.env.REACT_APP_PRIVATE_KEY],
     }
   }
 };
