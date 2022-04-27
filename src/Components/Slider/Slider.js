@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Slider.scss'
-import '../../Components/Slider/Slider.scss'
+import CarsList from "../../Assets/Cars/response.json"
 
-function CarsSlider({ images, text, id, location, price }) {  
+function CarsSlider({ images, text, id, location, price, reserved }) {
   const length = images.length
   const CarLink = '/CarDetails/'
   const [index, setIndex] = useState(0)

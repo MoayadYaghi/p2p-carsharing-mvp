@@ -15,8 +15,8 @@ Todos:
 
     Hompage: Location under model name
 
-    add boolean to object car: reserved not reserved
-    add function to set reserved true when car is rented
+    add boolean to object car: reserved not reserved ✅
+    add function to set reserved true when car is rented 
     if reserved, it should disapear from the slider
     add redirect function: after renting a car, get back to the profile overview to see your orders
     dynamic orders: start with no order
@@ -45,5 +45,5 @@ Future:
 Critique for the current product:
 
     How to conect the code to the physical car?
-    What if somebody took the car ad never returned it?
+    What if somebody took the car and never returned it?
 

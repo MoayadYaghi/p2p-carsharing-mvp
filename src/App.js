@@ -7,6 +7,7 @@ import {
   // Redirect,
 } from "react-router-dom";
 import { ethers } from 'ethers'
+// import { createGlobalState } from 'react-hooks-global-state'
 
 // Components
 import HomePage from "./Pages/HomePage";
@@ -20,6 +21,9 @@ import CarRentalContract from "./artifacts/contracts/Carsharing.sol/CarRentalCon
 
 // Carsharing deployed to this local node
 const carRentalContractAddress = '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'
+
+// const [ ,  ] = createGlobalState({});
+// in other files: import { ,  } from ''
 
 const App = () => {
   // Paths

@@ -4,36 +4,41 @@
             "id": 1,
             "modelName": "Mercedes Benz E Class",
             "image": "/MB E class.png",
-            "location": "",
-            "price": 0.0001
+            "location": "Mannheim",
+            "price": 0.0001,
+            "reserved": false
         },
         {
             "id": 2,
             "modelName": "Land Rover Range Rover",
             "image": "/Land Rover Range Rover.png",
-            "location": "",
-            "price": 0.0002
+            "location": "Heidelberg",
+            "price": 0.0002,
+            "reserved": false
         },
         {
             "id": 3,
             "modelName": "Porsche 911",
             "image": "/Porsche 911.png",
-            "location": "",
-            "price": 0.0003
+            "location": "Stuttgart",
+            "price": 0.0003,
+            "reserved": false
         },
         {
             "id": 4,
             "modelName": "Toyota Supra",
             "image": "/Toyota Supra.png",
-            "location": "",
-            "price": 0.0004
+            "location": "Frankfurt",
+            "price": 0.0004,
+            "reserved": false
         },
         {
             "id": 5,
             "modelName": "Ford Mustang",
             "image": "/Ford Mustang.png",
-            "location": "",
-            "price": 0.0005
+            "location": "Karlsruhe",
+            "price": 0.0005,
+            "reserved": false
         }
     ]
 }

@@ -45,26 +45,6 @@ class Payment extends Component {
     return (
       <form onSubmit={this.formSubmit}>
         <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="Mastercard"
-              checked={this.state.selectedOption === "Mastercard"}
-              onChange={this.onValueChange}
-            />
-            Mastercard
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input
-              type="radio"
-              value="Paypal"
-              checked={this.state.selectedOption === "Paypal"}
-              onChange={this.onValueChange}
-            />
-            Paypal
-          </label>
         </div>
         <div className="radio">
           <label>
@@ -80,10 +60,11 @@ class Payment extends Component {
         <div>
           Selected option is : {this.state.selectedOption}
         </div>
+        {/* <input onChange={ e => setRentTime(e.target.value) placeholder={"Enter hours"} value={}}/> */}
+        {/* onClick =  */}
         <button className="btn btn-default" type="submit">
           Pay
         </button>
-        {/* <input onChange={ e => setRentTime(e.target.value) placeholder="Enter hours" value={}}/> */}
       </form>
     );
   }
