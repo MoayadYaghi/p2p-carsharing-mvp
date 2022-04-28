@@ -45,3 +45,15 @@ export default class NavbarComp extends Component {
     )
   }
 }
+
+
+  // async function connectedAccount() {
+  //   if (window.ethereum) {
+  //     const accounts = await window.ethereum.request({
+  //       // outputs all the accounts that exist in the metamask wallet
+  //       method: "eth_requestAccounts",
+  //     });
+  //     setAccounts(accounts);
+  //     console.log(accounts);
+  //   }
+  // }

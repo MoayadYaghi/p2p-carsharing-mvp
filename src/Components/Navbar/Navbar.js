@@ -3,7 +3,18 @@ import { animateScroll as scroll } from "react-scroll";
 import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
 import Logo from "../../Assets/LOGO.jpg";
-import { useMoralis } from "react-moralis";
+import { useMoralis } from "react-moralis"; 
+import { Moralis } from "moralis"; 
+
+
+// let walletAddress 
+
+(async () => {
+  let walletAddress = await Moralis.User.current();
+  console.log(walletAddress);
+})();
+
+// const account = await connectedAccount()
 
 export default function NavbarComp({ accounts, setAccounts }) {
   let state = { loggedIn: false };
@@ -11,18 +22,9 @@ export default function NavbarComp({ accounts, setAccounts }) {
   const LoginLink = "/Login";
   const { isAuthenticated, logout } = useMoralis();
 
-  // async function connectedAccount() {
-  //   if (window.ethereum) {
-  //     const accounts = await window.ethereum.request({
-  //       // outputs all the accounts that exist in the metamask wallet
-  //       method: "eth_requestAccounts",
-  //     });
-  //     setAccounts(accounts);
-  //     console.log(accounts);
-  //   }
-  // }
-
-  // const isConnected = Boolean(accounts[0]);
+  // const walletAddress = window.ethereum.selectedAddress
+  // const walletAddress = web3.currentProvider.selectedAddress
+  // console.log(walletAddress);
 
   return (
     <div className="Navbar">

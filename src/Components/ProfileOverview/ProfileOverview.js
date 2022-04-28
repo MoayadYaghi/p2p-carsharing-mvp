@@ -14,10 +14,7 @@ class ProfileOverview extends Component {
       orders: [],
       user: [],
       loaded: false,
-      editableProfile: false,
-      // signedIn: false,
-      // ErrorMessage: false,
-      // tokenEmpty: false,
+      editableProfile: false
     }
     this.editProfile = this.editProfile.bind(this)
     this.profileEdited = this.profileEdited.bind(this)
@@ -151,12 +148,12 @@ class ProfileOverview extends Component {
               </div>
             </div>
             <div className="AboveRight">
-              <button className="EditProfileButton" onClick={this.editProfile}>
+              <button className="" onClick={this.editProfile}>
                 {' '}
                 Edit Profile{' '}
               </button>
               <button
-                className="EditProfileButton"
+                className=""
                 onClick={this.profileEdited}
               >
                 {' '}

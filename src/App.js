@@ -7,7 +7,7 @@ import {
   // Redirect,
 } from "react-router-dom";
 import { ethers } from 'ethers'
-// import { createGlobalState } from 'react-hooks-global-state'
+import { createGlobalState } from 'react-hooks-global-state'
 
 // Components
 import HomePage from "./Pages/HomePage";
@@ -24,6 +24,9 @@ const carRentalContractAddress = '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'
 
 // const [ ,  ] = createGlobalState({});
 // in other files: import { ,  } from ''
+
+// const [globalAccounts, setGlobalAccounts] = createGlobalState([]);
+
 
 const App = () => {
   // Paths
@@ -53,7 +56,7 @@ const App = () => {
       }
     }    
   }
-
+  
   // async function setCostPerHour() {}
 
   // async function getRentalHours() {}
@@ -61,6 +64,7 @@ const App = () => {
   // async function setRentalHours() {}
 
   // async function getRentalTotalCost() {}
+
 
   return (
     <div className="App">

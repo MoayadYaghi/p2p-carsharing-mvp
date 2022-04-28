@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import CarRentalContract from "./../../artifacts/contracts/Carsharing.sol/CarRentalContract.json"
+import CarsList from "../../Assets/Cars/response.json";
 
 
 class Payment extends Component {
+  url = window.location.href;
+  carId = this.url.split("/")[4];
+
   constructor() {
     super();
     this.state = {
@@ -34,11 +38,24 @@ class Payment extends Component {
   }
 
   // from .sol file
-  setRentTime() {
+  setRentTime(rentTime) {
 
   }
 
   payWithMetamask() {
+  }
+
+  reserveCar() {
+    this.payWithMetamask()
+    let newCarsList = Object.values(CarsList)[0].forEach( car => {
+      if (car.id == this.carId)
+        car.reserved = true
+    })
+    this.updateAvailableCars(newCarsList)
+  }
+
+  updateAvailableCars() {
+
   }
 
   render() {
