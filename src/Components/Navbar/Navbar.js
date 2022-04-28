@@ -32,7 +32,6 @@ export default function NavbarComp({ accounts, setAccounts }) {
   const LoginLink = "/Login";
   const { isAuthenticated, logout } = useMoralis();
   connectToBrowserWallet()
-  console.log(chainID)
 
   return (
     <div className="Navbar">
