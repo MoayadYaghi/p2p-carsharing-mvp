@@ -5,26 +5,34 @@ import "./Navbar.css";
 import Logo from "../../Assets/LOGO.jpg";
 import { useMoralis } from "react-moralis"; 
 import { Moralis } from "moralis"; 
+import { ethers } from "https://cdn.skypack.dev/ethers";
+
+let account = "";
+let provider = "";
+let chainID = "";
 
 
-// let walletAddress 
-
-(async () => {
-  let walletAddress = await Moralis.User.current();
-  console.log(walletAddress);
-})();
-
-// const account = await connectedAccount()
+async function connectToBrowserWallet() {
+  if (typeof window.ethereum === "undefined") {
+    alert("You need to install a browserwallet like metamask.io.");
+  } else {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    account = accounts[0];
+    provider = new ethers.providers.Web3Provider(
+      window.ethereum,
+      "any"
+    );        
+    chainID = provider.provider.chainId
+  }
+}
 
 export default function NavbarComp({ accounts, setAccounts }) {
-  let state = { loggedIn: false };
-  // state = { loggedIn: true };
   const LoginLink = "/Login";
   const { isAuthenticated, logout } = useMoralis();
-
-  // const walletAddress = window.ethereum.selectedAddress
-  // const walletAddress = web3.currentProvider.selectedAddress
-  // console.log(walletAddress);
+  connectToBrowserWallet()
+  console.log(chainID)
 
   return (
     <div className="Navbar">
@@ -55,7 +63,7 @@ export default function NavbarComp({ accounts, setAccounts }) {
         ) : (
           <li>
             <a className="nav-links" href={LoginLink}>
-              Logged In
+              Logged In as: {chainID}...
             </a>
           </li>
         )}

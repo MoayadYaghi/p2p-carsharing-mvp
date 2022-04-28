@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CarRentalContract from "./../../artifacts/contracts/Carsharing.sol/CarRentalContract.json";
 import CarsList from "../../Assets/Cars/response.json";
+import { ethers } from "https://cdn.skypack.dev/ethers";
 
 class Payment extends Component {
   url = window.location.href;
@@ -11,30 +12,33 @@ class Payment extends Component {
   costPerHour = "";
   reserved = false;
   walletAddress = "";
+  carDetails = Object.values(CarsList)[0].filter((car) => car.id == this.carId)[0];
+  // wallet
+  account = "";
+  provider = "";
 
   constructor() {
     super();
-    this.state = {
-      selectedPaymentMethod: null,
-    };
+    this.state = {};
     this.onValueChange = this.onValueChange.bind(this);
     this.formSubmit = this.formSubmit.bind(this);
-    this.fetchCarDetails();
   }
 
-  fetchCarDetails() {
-    Object.values(CarsList)[0].forEach((car) => {
-      // console.log(car);
-      if (car.id == this.carId) {
-        this.modelName = car.modelName;
-        this.imagePath = car.image;
-        this.location = car.location;
-        this.costPerHour = car.price;
-        this.reserved = car.reserved;
-        this.walletAddress = car.wallet;
-      }
+  
+async connectToBrowserWallet() {
+  if (typeof window.ethereum === "undefined") {
+    alert("You need to install a browserwallet like metamask.io.");
+  } else {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
     });
+    this.account = accounts[0];
+    this.provider = new ethers.providers.Web3Provider(
+      window.ethereum,
+      "any"
+    );
   }
+}
 
   onValueChange(event) {
     this.setState({
@@ -63,19 +67,35 @@ class Payment extends Component {
   }
 
   // from .sol file
-  setRentTime(rentTime) {}
+  setRentTime(rentTime) { }
 
-  payWithMetamask() {}
-
-  rentCar() {
-    this.payWithMetamask();
-    let newCarsList = Object.values(CarsList)[0].forEach((car) => {
-      if (car.id == this.carId) car.reserved = true;
-    });
-    this.updateAvailableCars(newCarsList);
+  payWithMetamask() {
   }
 
-  updateAvailableCars() {}
+  // async transfer() {
+  //   const signer = await provider.getSigner();
+  //   erc721ToBeTransferredContract = await new ethers.Contract(
+  //     nftToBeTransferredAddress,
+  //     erc721ABI,
+  //     provider
+  //   );
+  //   erc721ToBeTransferredContractWithSigner =
+  //     erc721ToBeTransferredContract.connect(signer);
+  //   await erc721ToBeTransferredContractWithSigner.transferOwnership(
+  //     targetWallet
+  //   );
+  // }
+
+  rentCar() {
+    this.carDetails.reserved = true;
+    this.updateAvailableCars(this.carDetails);
+    this.payWithMetamask();
+    console.log(this.carDetails.modelName + " is rented!")
+  }
+
+  updateAvailableCars() {
+    // send this.carDetails back to the database
+  }
 
   render() {
     return (
@@ -113,11 +133,11 @@ class Payment extends Component {
           </label>
         </div>
         <br />
-        <div>Pay with : {this.state.selectedOption}</div>
+        <div>Pay with: {this.state.selectedOption}</div>
         {/* <input onChange={ e => setRentTime(e.target.value) placeholder={"Enter hours"} value={}}/> */}
         <br />
         <button
-          onClick={this.rentCar}
+          onClick={this.rentCar()}
           className="btn btn-default"
           type="submit"
         >

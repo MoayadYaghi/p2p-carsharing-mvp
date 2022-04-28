@@ -7,7 +7,6 @@ import {
   // Redirect,
 } from "react-router-dom";
 import { ethers } from 'ethers'
-import { createGlobalState } from 'react-hooks-global-state'
 import CarsList from './Assets/Cars/response.json'
 
 // Components
@@ -41,6 +40,7 @@ const App = () => {
   const [rentalHours, setRentalHours] = useState('');
   
   const [carsList, setCarsList] = useState([]);
+
   async function requestAccount() {
     await window.ethereum.request({ method: 'eth_requestAccounts' });
   }
@@ -101,6 +101,9 @@ const App = () => {
     }
   }
   
+  function updateAvailableCars() {
+
+  }
 
   // async function getRentalTotalCost() {}
 
