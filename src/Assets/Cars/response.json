@@ -6,7 +6,8 @@
             "image": "/MB E class.png",
             "location": "Mannheim",
             "price": 0.0001,
-            "reserved": false
+            "reserved": false,
+            "wallet":"0x9D8A7400f1467E3bFcf558CA2E660ef68c174f62"
         },
         {
             "id": 2,
@@ -14,7 +15,8 @@
             "image": "/Land Rover Range Rover.png",
             "location": "Heidelberg",
             "price": 0.0002,
-            "reserved": false
+            "reserved": false,
+            "wallet":""
         },
         {
             "id": 3,
@@ -22,7 +24,8 @@
             "image": "/Porsche 911.png",
             "location": "Stuttgart",
             "price": 0.0003,
-            "reserved": false
+            "reserved": false,
+            "wallet":""
         },
         {
             "id": 4,
@@ -30,7 +33,8 @@
             "image": "/Toyota Supra.png",
             "location": "Frankfurt",
             "price": 0.0004,
-            "reserved": false
+            "reserved": false,
+            "wallet":""
         },
         {
             "id": 5,
@@ -38,7 +42,8 @@
             "image": "/Ford Mustang.png",
             "location": "Karlsruhe",
             "price": 0.0005,
-            "reserved": false
+            "reserved": false,
+            "wallet":""
         },
         {
             "id": 6,
@@ -46,7 +51,8 @@
             "image": "/Land Rover Range Rover.png",
             "location": "Mannheim",
             "price": 0.0002,
-            "reserved": true
+            "reserved": true,
+            "wallet":""
         }
     ]
 }

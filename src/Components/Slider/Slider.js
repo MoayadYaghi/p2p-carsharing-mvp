@@ -110,7 +110,8 @@ function CarsSlider({ images, text, id, location, price, reserved }) {
                 <div className="leftButton">{'>'}</div>
               </button>
             </div>
-            <Link className="TextDisplayMiddle" to={CarLink + id[index]}>
+            <Link className="" to={CarLink + id[index]}>
+                <br/>
               <div key={index} className="slide">
                 {text[index]}
                 <br/>

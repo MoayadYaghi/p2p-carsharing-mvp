@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { ethers } from 'ethers'
 import { createGlobalState } from 'react-hooks-global-state'
+import CarsList from './Assets/Cars/response.json'
 
 // Components
 import HomePage from "./Pages/HomePage";
@@ -22,9 +23,9 @@ import CarRentalContract from "./artifacts/contracts/Carsharing.sol/CarRentalCon
 // Carsharing deployed to this local node
 const carRentalContractAddress = '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'
 
+
 // const [ ,  ] = createGlobalState({});
 // in other files: import { ,  } from ''
-
 // const [globalAccounts, setGlobalAccounts] = createGlobalState([]);
 
 
@@ -36,9 +37,10 @@ const App = () => {
   const LoginLink = "/Login";
   const PaymentLink = "/CarDetails/:id/Payment";
   const [accounts, setAccounts] = useState([]);
-  // const [rentalCostPerHour, setCostPerHour] = useState('');
-  // const [rentalHours, setRentalHours] = useState('');
-
+  const [rentalCostPerHour, setCostPerHour] = useState('');
+  const [rentalHours, setRentalHours] = useState('');
+  
+  const [carsList, setCarsList] = useState([]);
   async function requestAccount() {
     await window.ethereum.request({ method: 'eth_requestAccounts' });
   }
@@ -56,14 +58,66 @@ const App = () => {
       }
     }    
   }
+
+  async function setCostsPerHour() {
+    if (!rentalCostPerHour) return
+    if (typeof window.ethereum !== 'undefined') {
+      await requestAccount()
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      console.log({ provider })
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(carRentalContractAddress, CarRentalContract.abi, signer)
+      const transaction = await contract.setCostPerHour(rentalCostPerHour)
+      await transaction.wait()
+      getCostPerHour()
+    }
+  }
+
+  async function getRentalHours() {
+    if (typeof window.ethereum !== 'undefined') {
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      console.log({ provider })
+      const contract = new ethers.Contract(carRentalContractAddress, CarRentalContract.abi, provider)
+      try {
+        const data = await contract.getRentalHours()
+        console.log('data: ', data)
+      } catch (err) {
+        console.log("Error: ", err)
+      }
+    }    
+  }
   
-  // async function setCostPerHour() {}
-
-  // async function getRentalHours() {}
-
-  // async function setRentalHours() {}
+  async function setCostsPerHour() {
+    if (!rentalHours) return
+    if (typeof window.ethereum !== 'undefined') {
+      await requestAccount()
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      console.log({ provider })
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(carRentalContractAddress, CarRentalContract.abi, signer)
+      const transaction = await contract.setRentalHours(rentalHours)
+      await transaction.wait()
+      getCostPerHour()
+    }
+  }
+  
 
   // async function getRentalTotalCost() {}
+
+  // async function getRentalTotalCost() {}
+
+  // async function getAllRegisteredCars() {}
+
+  // async function getBalance() {
+  //   if (typeof window.ethereum !== 'undefined') {
+  //     const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' })
+  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
+  //     const contract = new ethers.Contract(tokenAddress, Token.abi, provider)
+  //     const balance = await contract.balanceOf(account);
+  //     console.log("Balance: ", balance.toString());
+  //   }
+  // }
+
 
 
   return (

@@ -2,53 +2,51 @@ import React, { Component } from "react";
 import CarRentalContract from "./../../artifacts/contracts/Carsharing.sol/CarRentalContract.json";
 import CarsList from "../../Assets/Cars/response.json";
 
-class Payment extends Component {
-  url = window.location.href;
-  carId = this.url.split("/")[4];
-  modelName = "";
-  imagePath = "";
-  location = "";
-  costPerHour = "";
-  reserved = false;
-  walletAddress = "";
 
-  constructor() {
-    super();
-    this.state = {
-      selectedPaymentMethod: null,
-    };
-    this.onValueChange = this.onValueChange.bind(this);
-    this.formSubmit = this.formSubmit.bind(this);
-    this.fetchCarDetails();
+// const [rentalHours, setRentalHours] = useState('');
+
+function Payment() {
+  let url = window.location.href;
+  let carId = this.url.split("/")[4];
+  let modelName = "";
+  let imagePath = "";
+  let location = "";
+  let costPerHour = "";
+  let reserved = false;
+  let walletAddress = "";
+
+  let state = {
+    forename: '',
+    lastName: '',
+    email: '',
+    age: '',
+    orders: [],
+    user: [],
+    loaded: false,
+    editableProfile: false
   }
 
-  fetchCarDetails() {
+  function fetchCarDetails() {
     Object.values(CarsList)[0].forEach((car) => {
       // console.log(car);
       if (car.id == this.carId) {
-        this.modelName = car.modelName;
-        this.imagePath = car.image;
-        this.location = car.location;
-        this.costPerHour = car.price;
-        this.reserved = car.reserved;
-        this.walletAddress = car.wallet;
+        modelName = car.modelName;
+        imagePath = car.image;
+        location = car.location;
+        costPerHour = car.price;
+        reserved = car.reserved;
+        walletAddress = car.wallet;
       }
     });
   }
 
-  onValueChange(event) {
+  function onValueChange(event) {
     this.setState({
-      selectedOption: event.target.value,
+      selectedOption: event.target.value
     });
   }
 
-  formSubmit(event) {
-    event.preventDefault();
-    console.log(this.state.selectedOption);
-    this.pay();
-  }
-
-  pay() {
+  function pay() {
     switch (this.state.selectedOption) {
       case "Mastercard":
         break;
@@ -63,11 +61,11 @@ class Payment extends Component {
   }
 
   // from .sol file
-  setRentTime(rentTime) {}
+  function setRentTime(rentTime) {}
 
-  payWithMetamask() {}
+  function payWithMetamask() {}
 
-  rentCar() {
+  function rentCar() {
     this.payWithMetamask();
     let newCarsList = Object.values(CarsList)[0].forEach((car) => {
       if (car.id == this.carId) car.reserved = true;
@@ -75,20 +73,19 @@ class Payment extends Component {
     this.updateAvailableCars(newCarsList);
   }
 
-  updateAvailableCars() {}
+  function updateAvailableCars() {}
 
-  render() {
     return (
-      <form onSubmit={this.formSubmit}>
+      <form>
         <br />
-        {/* <input
+        <input
           className=""
           type="text"
           placeholder="...enter desired rent hours"
           disabled={false}
           value=""
           onChange={this.handleChange}
-        /> */}
+        />
         <div className="radio">
           <br />
           {/* To rent the car, please copy and paste the following public key into
@@ -107,7 +104,7 @@ class Payment extends Component {
               type="radio"
               value="Metamask"
               checked={this.state.selectedOption === "Metamask"}
-              onChange={this.onValueChange}
+              onChange={onValueChange}
             />
             Metamask
           </label>
@@ -125,7 +122,6 @@ class Payment extends Component {
         </button>
       </form>
     );
-  }
 }
 
 export default Payment;
