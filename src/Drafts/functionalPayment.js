@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import CarRentalContract from "./../../artifacts/contracts/Carsharing.sol/CarRentalContract.json";
 import CarsList from "../../Assets/Cars/response.json";
 
-
 // const [rentalHours, setRentalHours] = useState('');
 
 function Payment() {
@@ -16,15 +15,15 @@ function Payment() {
   let walletAddress = "";
 
   let state = {
-    forename: '',
-    lastName: '',
-    email: '',
-    age: '',
+    forename: "",
+    lastName: "",
+    email: "",
+    age: "",
     orders: [],
     user: [],
     loaded: false,
-    editableProfile: false
-  }
+    editableProfile: false,
+  };
 
   function fetchCarDetails() {
     Object.values(CarsList)[0].forEach((car) => {
@@ -42,7 +41,7 @@ function Payment() {
 
   function onValueChange(event) {
     this.setState({
-      selectedOption: event.target.value
+      selectedOption: event.target.value,
     });
   }
 
@@ -75,22 +74,22 @@ function Payment() {
 
   function updateAvailableCars() {}
 
-    return (
-      <form>
+  return (
+    <form>
+      <br />
+      <input
+        className=""
+        type="text"
+        placeholder="...enter desired rent hours"
+        disabled={false}
+        value=""
+        onChange={this.handleChange}
+      />
+      <div className="radio">
         <br />
-        <input
-          className=""
-          type="text"
-          placeholder="...enter desired rent hours"
-          disabled={false}
-          value=""
-          onChange={this.handleChange}
-        />
-        <div className="radio">
-          <br />
-          {/* To rent the car, please copy and paste the following public key into
+        {/* To rent the car, please copy and paste the following public key into
           the address field: {this.walletAddress} */}
-          {/* <input
+        {/* <input
             className=""
             type="text"
             placeholder="...enter target wallet"
@@ -98,30 +97,26 @@ function Payment() {
             value=""
             onChange={this.handleChange}
           /> */}
-          <br />
-          <label>
-            <input
-              type="radio"
-              value="Metamask"
-              checked={this.state.selectedOption === "Metamask"}
-              onChange={onValueChange}
-            />
-            Metamask
-          </label>
-        </div>
         <br />
-        <div>Pay with : {this.state.selectedOption}</div>
-        {/* <input onChange={ e => setRentTime(e.target.value) placeholder={"Enter hours"} value={}}/> */}
-        <br />
-        <button
-          onClick={this.rentCar}
-          className="btn btn-default"
-          type="submit"
-        >
-          Pay to rent car
-        </button>
-      </form>
-    );
+        <label>
+          <input
+            type="radio"
+            value="Metamask"
+            checked={this.state.selectedOption === "Metamask"}
+            onChange={onValueChange}
+          />
+          Metamask
+        </label>
+      </div>
+      <br />
+      <div>Pay with : {this.state.selectedOption}</div>
+      {/* <input onChange={ e => setRentTime(e.target.value) placeholder={"Enter hours"} value={}}/> */}
+      <br />
+      <button onClick={this.rentCar} className="btn btn-default" type="submit">
+        Pay to rent car
+      </button>
+    </form>
+  );
 }
 
 export default Payment;

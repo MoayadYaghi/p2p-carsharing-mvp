@@ -3,109 +3,109 @@ import CarRentalContract from "./../../artifacts/contracts/Carsharing.sol/CarRen
 import CarsList from "../../Assets/Cars/response.json";
 import { ethers } from "https://cdn.skypack.dev/ethers";
 import { setGlobalState, useGlobalState } from "../../index";
+import { useState } from "react";
+import ErrorMessage from "./ErrorMessage";
+import TxList from "./TxList";
+import "./Payment.css";
 
-// export default function GlobalCarList() {
-//     const list = useGlobalState("carsList");
-//     console.log(list)
-// }
+const carId = window.location.href.split("/")[4];
+// let allCarsList = CarsList.cars;
+let carDetails = Object.values(CarsList)[0].filter((car) => car.id == carId)[0];
 
-class Payment extends Component {
-  url = window.location.href;
-  carId = this.url.split("/")[4];
-  modelName = "";
-  imagePath = "";
-  location = "";
-  costPerHour = "";
-  reserved = false;
-  walletAddress = "";
-  carDetails = Object.values(CarsList)[0].filter(
-    (car) => car.id == this.carId
-  )[0];
-  // wallet
-  account = "";
-  provider = "";
-
-  constructor() {
-    super();
-    this.state = {};
-    this.onValueChange = this.onValueChange.bind(this);
-    this.formSubmit = this.formSubmit.bind(this);
-  }
-
-  async connectToBrowserWallet() {
-    if (typeof window.ethereum === "undefined") {
-      alert("You need to install a browserwallet like metamask.io.");
-    } else {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-      this.account = accounts[0];
-      this.provider = new ethers.providers.Web3Provider(window.ethereum, "any");
-    }
-  }
-
-  onValueChange(event) {
-    this.setState({
-      selectedOption: event.target.value,
+const startPayment = async ({ setError, setTxs, ether, addr }) => {
+  try {
+    if (!window.ethereum)
+      throw new Error("No crypto wallet found. Please install it.");
+    await window.ethereum.send("eth_requestAccounts");
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    ethers.utils.getAddress(addr);
+    const tx = await signer.sendTransaction({
+      to: addr,
+      value: ethers.utils.parseEther(ether),
     });
+    console.log({ ether, addr });
+    console.log("tx", tx);
+    setTxs([tx]);
+  } catch (err) {
+    setError(err.message);
   }
+};
 
-  formSubmit(event) {
+export default function GlobalCarList() {
+  const carsList = useGlobalState("carsList")[0];
+  const wallet = carDetails.wallet;
+  const [radioButtonValue, setRadioButtonValue] = useState();
+  const [error, setError] = useState();
+  const [txs, setTxs] = useState([]);
+  // console.log(carsList);
+  // console.log(carDetails);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    setError();
+    await startPayment({
+      setError,
+      setTxs,
+      ether: data.get("ether"),
+      addr: data.get("addr"),
+    });
+  };
+
+  function formSubmit(event) {
     event.preventDefault();
-    console.log(this.state.selectedOption);
-    this.pay();
   }
 
-  pay() {
-    switch (this.state.selectedOption) {
-      case "Mastercard":
-        break;
-      case "Paypal":
-        break;
-      case "Metamask":
-        this.payWithMetamask();
-        break;
-      default:
-        this.payWithMetamask();
-    }
+  function onValueChange(event) {
+    setRadioButtonValue(event.target.value);
+    // console.log(radioButtonValue);
   }
+
+  function rentCar() {
+    // carDetails.reserved = true;
+    // console.log(carDetails);
+    updateAvailableCars();
+    payWithMetamask();
+    // console.log(carDetails.modelName + " is rented!");
+  }
+
+  function updateAvailableCars() {
+    const newCarList = [];
+    carsList.forEach((car) => {
+      if (car.id == carId) {
+        car.reserved = true;
+        console.log(car);
+      }
+      newCarList.push(car);
+    });
+    // console.log(newCarList);
+    // setGlobalState({ carsList: newCarList });
+  }
+
+  function payWithMetamask() {}
 
   // from .sol file
-  setRentTime(rentTime) {}
+  // function setRentTime(rentTime) {}
 
-  payWithMetamask() {}
-
-  // async transfer() {
-  //   const signer = await provider.getSigner();
-  //   erc721ToBeTransferredContract = await new ethers.Contract(
-  //     nftToBeTransferredAddress,
-  //     erc721ABI,
-  //     provider
-  //   );
-  //   erc721ToBeTransferredContractWithSigner =
-  //     erc721ToBeTransferredContract.connect(signer);
-  //   await erc721ToBeTransferredContractWithSigner.transferOwnership(
-  //     targetWallet
-  //   );
+  // function pay() {
+  //   switch (radioButtonValue) {
+  //     case "Mastercard":
+  //       break;
+  //     case "Paypal":
+  //       break;
+  //     case "Metamask":
+  //       this.payWithMetamask();
+  //       break;
+  //     default:
+  //       this.payWithMetamask();
+  //   }
   // }
 
-  rentCar() {
-    this.carDetails.reserved = true;
-    this.updateAvailableCars(this.carDetails);
-    this.payWithMetamask();
-    console.log(this.carDetails.modelName + " is rented!");
-  }
-
-  updateAvailableCars() {
-    // setGlobalState
-    // send this.carDetails back to the database
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.formSubmit}>
-        <br />
-        {/* <input
+  return (
+    <form onSubmit={handleSubmit}>
+      <br />
+      {/* <input
           className=""
           type="text"
           placeholder="...enter desired rent hours"
@@ -113,43 +113,49 @@ class Payment extends Component {
           value=""
           onChange={this.handleChange}
         /> */}
-        <div className="radio">
-          <br />
-          {/* To rent the car, please copy and paste the following public key into
-          the address field: {this.walletAddress} */}
-          {/* <input
-            className=""
-            type="text"
-            placeholder="...enter target wallet"
-            disabled={false}
-            value=""
-            onChange={this.handleChange}
-          /> */}
-          <br />
-          <label>
-            <input
-              type="radio"
-              value="Metamask"
-              checked={this.state.selectedOption === "Metamask"}
-              onChange={this.onValueChange}
-            />
-            Metamask
-          </label>
-        </div>
+      <div className="radio">
         <br />
-        <div>Pay with: {this.state.selectedOption}</div>
-        {/* <input onChange={ e => setRentTime(e.target.value) placeholder={"Enter hours"} value={}}/> */}
         <br />
-        <button
-          onClick={this.rentCar()}
-          className="btn btn-default"
-          type="submit"
-        >
-          Pay to rent car
-        </button>
-      </form>
-    );
-  }
+        <label>
+          <input
+            type="radio"
+            value="Metamask"
+            checked={radioButtonValue === "Metamask"}
+            onChange={onValueChange}
+          />
+          Metamask
+        </label>
+        <br />
+        <br />
+        Recipient Address:
+        <br />
+        <br />
+        <input
+          type="text"
+          name="addr"
+          className="walletField"
+          placeholder="Recipient Address"
+          value={wallet}
+          readOnly
+        />
+        <br />
+        <br />
+        <input
+          name="ether"
+          type="text"
+          className="walletField"
+          placeholder="Amount in ETH"
+        />
+      </div>
+      <br />
+      <div>Pay with: {radioButtonValue}</div>
+      {/* <input onChange={ e => setRentTime(e.target.value) placeholder={"Enter hours"} value={}}/> */}
+      <br />
+      <button type="submit" className="btn btn-default">
+        Pay to rent car
+      </button>
+      <ErrorMessage message={error} />
+      <TxList txs={txs}/>
+    </form>
+  );
 }
-
-export default Payment;

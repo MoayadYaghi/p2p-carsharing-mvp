@@ -10,7 +10,6 @@ const HomePage = ({ accounts, setAccounts }) => {
     <div className="App">
       <Navbar accounts={accounts} setAccounts={setAccounts} />
       <Slider />
-        {/* <button onClick={test}>Test</button> */}
       <Footer />
     </div>
   );
