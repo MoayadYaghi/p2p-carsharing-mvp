@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import CarRentalContract from "./../../artifacts/contracts/Carsharing.sol/CarRentalContract.json";
 import CarsList from "../../Assets/Cars/response.json";
 import { ethers } from "https://cdn.skypack.dev/ethers";
@@ -53,10 +53,6 @@ export default function GlobalCarList() {
     });
   };
 
-  function formSubmit(event) {
-    event.preventDefault();
-  }
-
   function onValueChange(event) {
     setRadioButtonValue(event.target.value);
     // console.log(radioButtonValue);
@@ -105,14 +101,6 @@ export default function GlobalCarList() {
   return (
     <form onSubmit={handleSubmit}>
       <br />
-      {/* <input
-          className=""
-          type="text"
-          placeholder="...enter desired rent hours"
-          disabled={false}
-          value=""
-          onChange={this.handleChange}
-        /> */}
       <div className="radio">
         <br />
         <br />
@@ -149,13 +137,12 @@ export default function GlobalCarList() {
       </div>
       <br />
       <div>Pay with: {radioButtonValue}</div>
-      {/* <input onChange={ e => setRentTime(e.target.value) placeholder={"Enter hours"} value={}}/> */}
       <br />
       <button type="submit" className="btn btn-default">
         Pay to rent car
       </button>
       <ErrorMessage message={error} />
-      <TxList txs={txs}/>
+      <TxList txs={txs} />
     </form>
   );
 }

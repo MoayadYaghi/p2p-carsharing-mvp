@@ -41,7 +41,7 @@ export default function NavbarComp({ accounts, setAccounts }) {
         </a>
         <br />
         <br />
-        <h1 className="AppName">Carsharing Y</h1>
+        <h1 className="AppName">Carsharing Yaghi</h1>
       </div>
       <nav className="NavbarItems">
         {MenuItems.map((item, index) => {
