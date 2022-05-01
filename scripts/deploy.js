@@ -13,12 +13,6 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
-  // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Greeter deployed!");
-  await greeter.deployed();
-  console.log("Greeter deployed to:", greeter.address);
-
   const CarRentalContract = await hre.ethers.getContractFactory("CarRentalContract");
   const carRentalContract = await CarRentalContract.deploy(0, 0);
   await carRentalContract.deployed();
