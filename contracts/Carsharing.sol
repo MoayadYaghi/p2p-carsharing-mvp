@@ -1,8 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2;
 
+// import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.5.0/contracts/token/ERC721/ERC721.sol";
+// import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.5.0/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+// import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.5.0/contracts/access/Ownable.sol";
+// import "https://raw.githubusercontent.com/distributed-ledger-technology/solidity-logger/main/src/logger.sol";
 
-contract CarRentalContract {
+contract CarRentalContract /* is ERC721, ERC721URIStorage, Ownable */ {
     uint256 contractStartTime = 0;
     // string constant contractName = "P2PCarSharingService";
     // string constant contractSymbol = "PCSS";
