@@ -39,12 +39,10 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
         contractStartTime = block.timestamp;
     }
 
-    // Provide a new car to be rented. Pass id (automatically), car name and cost per hour as arguments
     function offerCar(string memory _id, string memory _modelName, uint256 _costsPerHour) public payable {
         rentedCars.push(car(_id, payable(msg.sender), _costsPerHour, _modelName, true));
     }
 
-    // rent car
     function rentCar(customerData memory _customer, string memory _carId) public {
         for (uint256 i = 0; i < availableCars.length; i++) {
             if (keccak256(abi.encodePacked((availableCars[i].id))) == keccak256(abi.encodePacked((_carId)))) {
@@ -58,12 +56,10 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
         }
     }
 
-    // when returning the car to its owner
     function returnCar(string memory _carId) public {
         updateCarsLists(addToAvailableCars, _carId);
     }
 
-    // when owner stops offering the car for sharing
     function withdrawCar(string memory _carId) public {
         updateCarsLists(removeFromOfferedCars, _carId);
     }
@@ -96,11 +92,8 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
     function removeFromAvailableCarsFunction(string memory _carId) public {
         car[] memory newListOfAvailableCars;
         for (uint256 i = 0; i < offeredCars.length; i++) {
-    
             if (keccak256(abi.encodePacked((offeredCars[i].id))) == keccak256(abi.encodePacked((_carId)))) {
-        
                 // newListOfAvailableCars.push(offeredCars[i]); // Error
-        
             }
         }
         // availableCars = newListOfAvailableCars; // Error
@@ -108,11 +101,8 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
 
     function addToAvailableCarsFunction(string memory _carId) public {
         for (uint256 i = 0; i < offeredCars.length; i++) {
-    
             if (keccak256(abi.encodePacked((offeredCars[i].id))) == keccak256(abi.encodePacked((_carId)))) {
-        
                 availableCars.push(offeredCars[i]);
-        
             }
         }
     }
@@ -120,46 +110,29 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
     function removeFromOfferedCarsFunction(string memory _carId) public {
         car[] memory newListOfOfferedCars;
         for (uint256 i = 0; i < offeredCars.length; i++) {
-    
             if (keccak256(abi.encodePacked((offeredCars[i].id))) == keccak256(abi.encodePacked((_carId)))) {
-        
                 // newListOfOfferedCars.push(offeredCars[i]); // Error
-        
             }
         }
         // offeredCars = newListOfOfferedCars; // Error
-
     }
     
     function pay(string memory _carId, uint256 _totalRentCost, customerData memory _customer, address  _ownerAddress) public {
-
         car memory offer = getCar(_carId);
-
         payable(_ownerAddress).transfer(_totalRentCost); // transfers the money to the seller
-        // payable(this.owner()).transfer(_totalRentCost); // transfers the money to the seller
-
         transferOwnership(_customer.from); // transfers the NFT to the buyer
     }
-    
-    // get car
+
     function getCar(string memory _carId) public view returns (car memory) {
-        // search a car with the given id in the list of all offered cars
         for (uint256 i = 0; i < offeredCars.length; i++) {
-    
-            // if given car id corresponds to a car id from the list, ...
             if (keccak256(abi.encodePacked((offeredCars[i].id))) == keccak256(abi.encodePacked((_carId)))) {
-        
-                // return the matched car
                 return offeredCars[i];
-        
             } // handle other cases. What if car does not exist? 
         }
     }
 
-    // Get all offered cars
-    function getAllCars() public view returns (car[] memory) {
+    function getAllOfferedCars() public view returns (car[] memory) {
         return offeredCars;
-
     }
 
     // Get all not reserved cars
