@@ -12,6 +12,7 @@ const carId = window.location.href.split("/")[4];
 // let allCarsList = CarsList.cars;
 let carDetails = Object.values(CarsList)[0].filter((car) => car.id == carId)[0];
 
+CarRentalContract.abi.
 const startPayment = async ({ setError, setTxs, ether, addr }) => {
   try {
     if (!window.ethereum)

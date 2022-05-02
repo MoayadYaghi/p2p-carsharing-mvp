@@ -13,8 +13,10 @@ const root = createRoot(rootElement);
 
 const { setGlobalState, useGlobalState } = createGlobalState({
   carsList: CarsList.cars
-  // accounts
+  // accounts: 
 })
+// const { setGlobalAccounts, useGlobalAccounts } = createGlobalState({ })
+// const { setGlobalAccounts, useGlobalAccounts } = createGlobalState({ })
 
 // console.log(APP_ID)
 // console.log(SERVER_URL)

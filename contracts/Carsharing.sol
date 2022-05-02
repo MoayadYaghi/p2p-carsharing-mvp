@@ -1,15 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.2;
 
-import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.5.0/contracts/token/ERC721/ERC721.sol";
-import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.5.0/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "https://raw.githubusercontent.com/OpenZeppelin/openzeppelin-contracts/v4.5.0/contracts/access/Ownable.sol";
-import "https://raw.githubusercontent.com/distributed-ledger-technology/solidity-logger/main/src/logger.sol";
 
-contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
+contract CarRentalContract {
     uint256 contractStartTime = 0;
-    string constant contractName = "P2PCarSharingService";
-    string constant contractSymbol = "PCSS";
+    // string constant contractName = "P2PCarSharingService";
+    // string constant contractSymbol = "PCSS";
     string constant addToAvailableCars = "addToAvailableCars";
     string constant removeFromAvailableCars = "removeFromAvailableCars";
     string constant removeFromOfferedCars = "removeFromOfferedCars";
@@ -35,7 +31,7 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
     car[] rentedCars;
     car[] availableCars;
 
-    constructor() ERC721(contractName, contractSymbol) {
+    constructor(string memory contractName, string memory contractSymbol) {
         contractStartTime = block.timestamp;
     }
 
@@ -50,7 +46,7 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
                 if (_customer.balance >= totalRentCost) {
                     reserveCar(_carId);
                     updateCarsLists(removeFromAvailableCars, _carId);
-                    pay(_carId, totalRentCost, _customer, availableCars[i].to);
+                    // pay(_carId, totalRentCost, _customer, availableCars[i].to);
                 }
             }
         }
@@ -117,11 +113,11 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
         // offeredCars = newListOfOfferedCars; // Error
     }
     
-    function pay(string memory _carId, uint256 _totalRentCost, customerData memory _customer, address  _ownerAddress) public {
-        car memory offer = getCar(_carId);
-        payable(_ownerAddress).transfer(_totalRentCost); // transfers the money to the seller
-        transferOwnership(_customer.from); // transfers the NFT to the buyer
-    }
+    // function pay(string memory _carId, uint256 _totalRentCost, customerData memory _customer, address  _ownerAddress) public {
+    //     car memory offer = getCar(_carId);
+    //     payable(_ownerAddress).transfer(_totalRentCost); // transfers the money to the seller
+    //     transferOwnership(_customer.from); // transfers the NFT to the buyer
+    // }
 
     function getCar(string memory _carId) public view returns (car memory) {
         for (uint256 i = 0; i < offeredCars.length; i++) {
@@ -143,21 +139,5 @@ contract CarRentalContract is ERC721, ERC721URIStorage, Ownable {
     // Get all resereved cars
     function getAllUnavailableCars() public view returns (car[] memory) {
         return rentedCars;
-    }
-
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721, ERC721URIStorage)
-        returns (string memory)
-    {
-        return super.tokenURI(tokenId);
-    }
-
-    function _burn(uint256 tokenId)
-        internal
-        override(ERC721, ERC721URIStorage)
-    {
-        super._burn(tokenId);
     }
 }

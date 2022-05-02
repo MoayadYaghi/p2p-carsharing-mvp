@@ -22,12 +22,6 @@ import CarRentalContract from "./artifacts/contracts/Carsharing.sol/CarRentalCon
 // Carsharing deployed to this local node
 const carRentalContractAddress = '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9'
 
-
-// const [ ,  ] = createGlobalState({});
-// in other files: import { ,  } from ''
-// const [globalAccounts, setGlobalAccounts] = createGlobalState([]);
-
-
 const App = () => {
   // Paths
   const HomeLink = "/";
@@ -38,8 +32,6 @@ const App = () => {
   const [accounts, setAccounts] = useState([]);
   const [rentalCostPerHour, setCostPerHour] = useState('');
   const [rentalHours, setRentalHours] = useState('');
-  
-  const [carsList, setCarsList] = useState([]);
 
   async function requestAccount() {
     await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -104,24 +96,6 @@ const App = () => {
   function updateAvailableCars() {
 
   }
-
-  // async function getRentalTotalCost() {}
-
-  // async function getRentalTotalCost() {}
-
-  // async function getAllRegisteredCars() {}
-
-  // async function getBalance() {
-  //   if (typeof window.ethereum !== 'undefined') {
-  //     const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' })
-  //     const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //     const contract = new ethers.Contract(tokenAddress, Token.abi, provider)
-  //     const balance = await contract.balanceOf(account);
-  //     console.log("Balance: ", balance.toString());
-  //   }
-  // }
-
-
 
   return (
     <div className="App">

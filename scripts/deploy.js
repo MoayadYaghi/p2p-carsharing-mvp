@@ -14,7 +14,7 @@ async function main() {
   // await hre.run('compile');
 
   const CarRentalContract = await hre.ethers.getContractFactory("CarRentalContract");
-  const carRentalContract = await CarRentalContract.deploy(0, 0);
+  const carRentalContract = await CarRentalContract.deploy("P2PCarSharingService", "PCSS");
   await carRentalContract.deployed();
   console.log("Carsharing deployed to:", carRentalContract.address);
 }
