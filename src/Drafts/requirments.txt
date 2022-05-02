@@ -21,7 +21,7 @@ Todos:
     add function to set reserved true when car is rented 
     if reserved, it should disapear from the slider ✅
     add redirect function: after renting a car, get back to the profile overview to see your orders
-    dynamic orders: start with no order
+    dynamic orders: start with no order 
 
     profile overview should only have name (from the connected wallet) and orders. No edit profile 
     profile overview buttons delete styling ✅
