@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { animateScroll as scroll } from "react-scroll";
 import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
-import Logo from "../../Assets/LOGO.jpg";
+import Logo from "../../Database/Assets/LOGO.jpg";
 import { useMoralis } from "react-moralis"; 
 import { Moralis } from "moralis"; 
 import { ethers } from "https://cdn.skypack.dev/ethers";
@@ -41,7 +41,7 @@ export default function NavbarComp({ accounts, setAccounts }) {
         </a>
         <br />
         <br />
-        <h1 className="AppName">DeSharing</h1>
+        <h1 className="AppName">Carsharing Yaghi</h1>
       </div>
       <nav className="NavbarItems">
         {MenuItems.map((item, index) => {

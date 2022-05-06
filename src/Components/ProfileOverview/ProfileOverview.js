@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './ProfileOverview.scss'
-import Profile from '../../Models/MyProfile.json'
+import Profile from '../../Database/MyProfile.json'
 
 class ProfileOverview extends Component {
   orders = Object.values(Profile.orders).map((order) => order.modelName)
