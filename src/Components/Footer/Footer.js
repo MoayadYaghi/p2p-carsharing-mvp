@@ -8,7 +8,7 @@ function Footer() {
       <div className="container">
         <div className="above">
           <div className="block-left">
-              <h4>Carsharing Yaghi</h4>
+              <h4>DeSharing</h4>
               <ul className="list-unstyled">
                 <li>About</li>
                 <li>Cars</li>
@@ -36,7 +36,7 @@ function Footer() {
         <hr />
         <div className="below">
           <p className="below-line">
-            &copy;{new Date().getFullYear()} Carsharing Yaghi - All rights reserved | Terms Of Service | Privacy
+            &copy;{new Date().getFullYear()} DeSharing - All rights reserved | Terms Of Service | Privacy
           </p>
           <br/>
         </div>

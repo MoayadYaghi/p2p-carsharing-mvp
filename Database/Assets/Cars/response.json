@@ -1,0 +1,58 @@
+{
+    "cars": [
+        {
+            "id": 1,
+            "modelName": "Mercedes Benz E Class",
+            "image": "/MB E class.png",
+            "location": "Mannheim",
+            "price": 0.0001,
+            "reserved": false,
+            "wallet":"0x9D8A7400f1467E3bFcf558CA2E660ef68c174f62"
+        },
+        {
+            "id": 2,
+            "modelName": "Land Rover Range Rover",
+            "image": "/Land Rover Range Rover.png",
+            "location": "Heidelberg",
+            "price": 0.0002,
+            "reserved": false,
+            "wallet":""
+        },
+        {
+            "id": 3,
+            "modelName": "Porsche 911",
+            "image": "/Porsche 911.png",
+            "location": "Stuttgart",
+            "price": 0.0003,
+            "reserved": false,
+            "wallet":""
+        },
+        {
+            "id": 4,
+            "modelName": "Toyota Supra",
+            "image": "/Toyota Supra.png",
+            "location": "Frankfurt",
+            "price": 0.0004,
+            "reserved": false,
+            "wallet":""
+        },
+        {
+            "id": 5,
+            "modelName": "Ford Mustang",
+            "image": "/Ford Mustang.png",
+            "location": "Karlsruhe",
+            "price": 0.0005,
+            "reserved": false,
+            "wallet":""
+        },
+        {
+            "id": 6,
+            "modelName": "Land Rover Range Rover",
+            "image": "/Land Rover Range Rover.png",
+            "location": "Mannheim",
+            "price": 0.0002,
+            "reserved": true,
+            "wallet":""
+        }
+    ]
+}
