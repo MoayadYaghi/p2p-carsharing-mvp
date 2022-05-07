@@ -13,7 +13,7 @@ Main Functions:
 
 Todos:
 
-    Creative name
+    Creative name ✅
 
     Hompage: Location under model name ✅
 
@@ -25,7 +25,7 @@ Todos:
 
     profile overview should only have name (from the connected wallet) and orders. No edit profile 
     profile overview buttons delete styling ✅
-    profile overview return car
+    profile overview return car 
 
     Payment page: paypal and master card make no sense since the user is anonymous ✅
 
