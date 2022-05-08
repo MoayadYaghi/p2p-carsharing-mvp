@@ -40,7 +40,7 @@ contract CarRentalContract /* is ERC721, ERC721URIStorage, Ownable */ {
     }
 
     function offerCar(string memory _id, string memory _modelName, uint256 _costsPerHour) public payable {
-        rentedCars.push(car(_id, payable(msg.sender), _costsPerHour, _modelName, true));
+        offeredCars.push(car(_id, payable(msg.sender), _costsPerHour, _modelName, true));
     }
 
     function rentCar(customerData memory _customer, string memory _carId) public {
